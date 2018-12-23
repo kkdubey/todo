@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1 class="h1-responsive">Freelancer Info</h1>
+      </div>
+    </div>
+    <br />
+    <br />
+    <div class="">
+      <div class="list-group">
+        <div *ngFor="let freelancer of freelancers" class="list-group-item">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{freelancer.name}}</h5>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Task Name</th>
+                <th scope="col">Task Desc</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let task of getTaskList(freelancer)" >
+                <td>{{task.task_name}}</td>
+                <td>{{task.task_desc}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>

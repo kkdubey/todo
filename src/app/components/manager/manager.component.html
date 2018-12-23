@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1 class="h1-responsive">Assign Task To Freelancer</h1>
+      </div>
+    </div>
+    <br />
+    <br />
+    <div class="row">
+        <table class="table" *ngIf="taskList.length">
+          <thead>
+            <tr>
+              <th scope="col">Task Name</th>
+              <th scope="col">Task Desc</th>
+              <th scope="col">Assign To</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let task of taskList" >
+              <td>{{task.task_name}}</td>
+              <td>{{task.task_desc}}</td>
+              <td>
+                <select class='form-control' required (change)='onFreelancerSelected($event, task)'>
+                  <option>select</option>
+                  <option *ngFor='let option of freelancers' [selected]="option.id == task.assign_to" [value]="option.id">{{option.name}}</option>
+                </select>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>

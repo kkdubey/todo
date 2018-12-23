@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h1 class="h1-responsive">TODO Add / List</h1>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-md-4">
+        <input type="text" class="form-control" required placeholder="Task Name" [(ngModel)]="task.task_name" />
+      </div>
+      <div class="col-md-4">
+        <input type="text" class="form-control" required placeholder="Task Description" [(ngModel)]="task.task_desc" />
+      </div>
+      <div class="col-md-4">
+        <button type="button" class="close" aria-label="Close" style="float: left;" (click)="addTask()">
+          <span aria-hidden="true" >Add</span>
+        </button>
+      </div>
+  </div>
+  <br />
+  <br />
+  <br />
+  <div class="row">
+    <table class="table" *ngIf="taskList.length">
+      <thead>
+        <tr>
+          <th scope="col">Task Name</th>
+          <th scope="col">Task Desc</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of taskList" >
+          <td>{{task.task_name}}</td>
+          <td>{{task.task_desc}} - {{task.assign_to}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
